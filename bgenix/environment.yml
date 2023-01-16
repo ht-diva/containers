@@ -1,0 +1,7 @@
+name: bgenix
+channels:
+  - conda-forge
+dependencies:
+  - bgenix=1.1.7
+platforms:
+  - linux-64
