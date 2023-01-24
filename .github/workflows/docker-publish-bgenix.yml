@@ -19,7 +19,7 @@ env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: ${{ github.repository }}/bgenix:1.1.7
 
 
 jobs:
@@ -72,7 +72,7 @@ jobs:
         with:
           context: bgenix/
           push: ${{ github.event_name != 'pull_request' }}
-          tags: gmauro/containers/bgenix:1.1.7 #${{ steps.meta.outputs.tags }}
+          tags: ${{ steps.meta.outputs.tags }}
           #labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
