@@ -1,3 +1,3 @@
 # containers
 
-Container recipes used to build images for our bioinformatics/statistical analysis.
+Container recipes that are used to build the images for our bioinformatics/statistical pipelines.
