@@ -29,4 +29,3 @@ RUN  wget -q https://www.well.ox.ac.uk/~gav/resources/qctool_v2.2.0-CentOS_Linux
 ENV PATH=/usr/local/bin:$PATH
 
 CMD ["/usr/sbin/init"]
-
