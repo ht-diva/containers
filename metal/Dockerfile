@@ -1,6 +1,5 @@
 # hadolint global ignore=DL3003,DL3008,DL3015
 # Dockerfile
-
 FROM debian:bookworm AS builder
 
 RUN set -ex;                                                                      \
