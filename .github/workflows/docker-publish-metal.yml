@@ -11,7 +11,7 @@ on:
   push:
     branches: [ main ]
     paths:
-      - metal/Dockerfile
+      - '${{ env.TOOL_NAME }}/**'
 
 jobs:
   build:
