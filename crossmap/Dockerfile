@@ -22,3 +22,4 @@ RUN python3 -m venv /opt/venv && \
 
 # Ensure the virtual environment is added to PATH for later use
 ENV PATH="/opt/venv/bin:$PATH"
+
