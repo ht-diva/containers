@@ -1,4 +1,4 @@
-name: Docker
+name: Build CrossMap Docker
 
 env:
   TOOL_NAME: "crossmap"
