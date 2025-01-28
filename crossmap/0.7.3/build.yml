@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  generateName: kaniko-build-crossmap # Prefix of the pod name that will be built, adapt it to your needs
+spec:
+  containers:
+  - name: kaniko
+    image: gcr.io/kaniko-project/executor:debug
+    args:
+# the building container mount /ssu/gassu as /workspace thus you have to set paths here relative to that
+    - --dockerfile=/workspace/containers/crossmap/0.7.3/Dockerfile # Dockerfile path
+    - --context=/workspace/containers/crossmap/ # Folder where the build is executed (additional resources can be placed here)
+    - --destination=k8s-registry.fht.org/gau/build:crossmap # address for the image push. The k8s-registry.fht.org/gau point to our docker registry and should not be changed. Adapt build:test to the image name and tag you want to use
+    - --skip-tls-verify
+    volumeMounts:
+    - name: gau-storage
+      mountPath: /workspace
+    - name: kaniko-secret
+      mountPath: /kaniko/.docker
+  hostAliases:
+  - ip: "10.1.48.71"
+    hostnames:
+    - "k8s-registry.fht.org"
+  restartPolicy: Never
+  volumes:
+  - name: gau-storage
+    persistentVolumeClaim:
+      claimName: gau-pvc
+  - name: kaniko-secret
+    secret:
+      secretName: k8s-registry-secret
+      items:
+        - key: .dockerconfigjson
+          path: config.json
