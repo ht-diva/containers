@@ -1,4 +1,4 @@
-# hadolint global ignore=DL3008,DL3003,DL3015
+# hadolint global ignore=DL3008,DL3003,DL3015,SC1091
 # Dockerfile
 
 FROM ubuntu:24.10
