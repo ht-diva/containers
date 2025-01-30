@@ -1,5 +1,5 @@
 # hadolint global ignore=DL3008,DL3003,DL3015
-# Dockerfile
+# Dockerfile Crossmap
 
 FROM ubuntu:24.10
 
