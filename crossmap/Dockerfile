@@ -17,7 +17,7 @@ RUN apt-get update && \
 # Create, activate the virtual environment and install Crossmap
 RUN python3 -m venv /opt/venv && \
     . /opt/venv/bin/activate && \
-    pip install Crossmap==0.7.3
+    pip install --no-cache-dir  Crossmap==0.7.3
 
 # Ensure the virtual environment is added to PATH for later use
 ENV PATH="/opt/venv/bin:$PATH"
