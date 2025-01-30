@@ -10,7 +10,9 @@ RUN apt-get update && \
     gcc \
     zlib1g-dev \
     pip \
-    python3-venv
+    python3-venv \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Create, activate the virtual environment and install Crossmap
 RUN python3 -m venv /opt/venv && \
