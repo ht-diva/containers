@@ -13,7 +13,8 @@ on:
     branches:
       - "main"
     paths:
-      - ${{ env.TOOL_NAME }}/*
+      - bgenix/Dockerfile
+      - bgenix/environment.yml
 
 jobs:
   build:
