@@ -1,7 +1,7 @@
 # hadolint global ignore=SC2086,DL3033,SC1091
 # Dockerfile
 
-# https://hub.docker.com/_/rockylinux
+# from https://hub.docker.com/_/rockylinux
 FROM rockylinux:8
 ENV container docker
 
