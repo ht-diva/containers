@@ -1,3 +1,3 @@
 # containers
 
-Container recipes that are used to build the images for our bioinformatics/statistical pipelines.
+This repository contains public container recipes used to build images for our bioinformatics and statistical pipelines.
