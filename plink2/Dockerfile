@@ -18,3 +18,4 @@ RUN apt-get update; \
 FROM ubuntu
 COPY --from=unzip plink2 /usr/bin/plink2
 
+
