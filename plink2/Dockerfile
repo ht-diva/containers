@@ -6,7 +6,7 @@
 # -----------------
 FROM ubuntu AS unzip
 
-ENV download=https://s3.amazonaws.com/plink2-assets/plink2_linux_avx2_20260311.zip
+ENV download=https://s3.amazonaws.com/plink2-assets/beta1/plink2_linux_avx2_20261107.zip
 RUN apt-get update; \
     apt-get install -y curl unzip; \
     curl ${download}  --output plink2.zip; \
