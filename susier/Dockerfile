@@ -1,6 +1,4 @@
 # Multi-stage Dockerfile for susier environment (SuSiE R package)
-# Pinned susieR version: install it from this GitHub tag and assert it at build time
-arg SUSIER_VERSION=2.0.0
 
 # Stage 1: Create conda environment
 from condaforge/miniforge3:26.9.4-2 as conda-builder
@@ -15,7 +13,8 @@ run conda env create -n susier -f /tmp/environment.yml && \
 
 # Stage 2: Install susieR from the pinned GitHub tag (overwrites any older conda r-susier)
 from conda-builder as susier-builder
-arg SUSIER_VERSION
+# Pinned susieR version: install it from this GitHub tag and assert it at build time
+arg SUSIER_VERSION=2.0.0
 
 # make + the conda C/C++ toolchain are required to compile susieR from source
 # (r-base's Makeconf calls aarch64-conda-linux-gnu-c++, absent from the miniforge3 base)
@@ -28,7 +27,7 @@ run printf 'download.file("https://codeload.github.com/stephenslab/susieR/tar.gz
 
 # Stage 3: Final lean image - only the environment
 from condaforge/miniforge3:26.9.4-2
-arg SUSIER_VERSION
+arg SUSIER_VERSION=2.0.0
 
 # Copy only the environment from susier-builder
 copy --from=susier-builder /opt/conda/envs/susier /opt/conda/envs/susier
