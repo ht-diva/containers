@@ -16,4 +16,12 @@ dependencies:
   # coloc integration (if used)
   - r-pgenlibr=0.5.3
   - r-coloc=5.2.3
+  # Analysis / data-wrapping packages used by the R script
+  - r-dplyr
+  - r-stringr
+  - r-data.table
+  # Plotting packages used by the R script
+  - r-ggplotify
+  - r-ggcorrplot
+  - r-ggpubr
 

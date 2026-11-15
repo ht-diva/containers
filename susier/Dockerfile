@@ -54,8 +54,9 @@ COPY --from=susier-builder /opt/conda/envs/susier /opt/conda/envs/susier
 # Put the susier env on PATH
 ENV PATH=/opt/conda/envs/susier/bin:$PATH
 
-# Verify installation: susieR is exactly the pinned version and key deps load
-RUN printf 'library(susieR)\nstopifnot(identical(as.character(packageVersion("susieR")), "%s"))\nlibrary(pgenlibr); library(coloc)\ncat("OK: susieR %s + pgenlibr + coloc loaded\\n")\n' "$SUSIER_VERSION" "$SUSIER_VERSION" > /tmp/verify.r \
+# Verify installation: susieR is exactly the pinned version and the packages
+# required by the R script (plus key deps) all load.
+RUN printf 'library(susieR)\nstopifnot(identical(as.character(packageVersion("susieR")), "%s"))\nfor (pkg in c("dplyr","stringr","data.table","susieR","pgenlibr","Rfast","coloc","ggplot2","ggplotify","ggcorrplot","ggpubr")) { suppressPackageStartupMessages(library(pkg, character.only = TRUE)) }\ncat("OK: susieR %s + all required R packages loaded\\n")\n' "$SUSIER_VERSION" "$SUSIER_VERSION" > /tmp/verify.r \
     && /opt/conda/envs/susier/bin/Rscript /tmp/verify.r \
     && rm -f /tmp/verify.r
 
