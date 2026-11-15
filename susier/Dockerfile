@@ -1,3 +1,4 @@
+# hadolint global ignore=DL3008
 # syntax=docker/dockerfile:1
 # Multi-stage Dockerfile for the susier environment (SuSiE R package)
 #
