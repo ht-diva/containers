@@ -1,4 +1,4 @@
-name: Publish Metal container
+name: Publish susieR container
 
 env:
   TOOL_NAME: "susier"
