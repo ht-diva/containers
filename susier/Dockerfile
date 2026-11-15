@@ -29,7 +29,7 @@ RUN printf 'download.file("https://codeload.github.com/stephenslab/susieR/tar.gz
     && rm -f /tmp/install_susieR.r /tmp/susieR.tar.gz \
     && conda clean -afy
 
-# Stage 3: Final lean image - only the environment
+# Stage 3: Final lean image, only the environment
 FROM condaforge/miniforge3:26.9.4-2
 ARG SUSIER_VERSION=2.0.0
 
