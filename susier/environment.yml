@@ -1,0 +1,19 @@
+name: susier
+channels:
+  - conda-forge
+dependencies:
+  - r-base=4.4.3
+  # susieR hard deps (Imports + LinkingTo)
+  - r-cpp11
+  - r-cpp11armadillo
+  - r-matrix
+  - r-matrixstats
+  - r-mixsqp
+  - r-reshape
+  - r-crayon
+  - r-ggplot2
+  - r-rfast
+  # coloc integration (if used)
+  - r-pgenlibr=0.5.3
+  - r-coloc=5.2.3
+
